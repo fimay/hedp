@@ -5,8 +5,8 @@
 # This software is governed by the CeCILL-B license under French law and
 # abiding by the rules of distribution of free software.
 
+import os.path
 from setuptools import setup, find_packages, Extension
-from setuptools import find_packages
 from Cython.Distutils import build_ext
 #from distutils.core import setup
 #from distutils.extension import Extension
@@ -28,6 +28,8 @@ ext_modules=[
              ["hedp/lib/selectors.pyx"],),
 ]
 
+include_dirs= [ np.get_include() ]
+
 if INCLUDE_GSL:
     ext_modules.append(Extension("hedp.lib.multigroup",
              ["hedp/lib/multigroup.pyx"],
@@ -36,6 +38,7 @@ if INCLUDE_GSL:
              libraries=['gsl', 'gslcblas'],
              library_dirs=[LIB_GSL],
              ))
+    include_dirs.append(INCLUDE_GSL)
 
 setup(name='hedp',
       version='0.1.0',
@@ -43,10 +46,12 @@ setup(name='hedp',
       author='Roman Yurchak',
       author_email='rth@crans.org',
       packages=find_packages(),
-      cmdclass = {'build_ext': build_ext},
-      ext_modules = ext_modules,
-      include_dirs=[np.get_include(), INCLUDE_GSL],
-      package_data={'hedp': ['hedp/tests/data/*', 'data/db/*']},
+      cmdclass= {'build_ext': build_ext},
+      ext_modules= ext_modules,
+      include_dirs=include_dirs,
+      package_data={'hedp': [os.path.join('tests','data','io', '*'),
+                             os.path.join('tests','data','opacity','*'),
+                             os.path.join('data','db', '*')] },
       test_suite="hedp.tests.run"
      )
 

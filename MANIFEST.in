@@ -1,6 +1,5 @@
 include README.md
 recursive-include hedp *.py
 recursive-include hedp *.pyx
-recursive-include data *
 
 
