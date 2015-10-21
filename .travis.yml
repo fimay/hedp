@@ -34,20 +34,21 @@ install:
     - git clone https://github.com/rth/opacplot2 --branch=master --single-branch
     - cd opacplot2/
 # so we can use the cythoned files without installing them
-#    - python setup.py build_ext --inplace -f -v
     - python setup.py install
+    - python setup.py build_ext --inplace -f -v # this is 
     - cd ..
     - rm -rf opacplot2/
     - python setup.py install
     - cd ~/
     - pwd
-    - ls -R
+#- ls -R
 
 # command to run tests
 script: 
-    - python  -c "import hedp.tests; hedp.tests.test()" --with-coverage --cover-package=hedp
-      #- coverage run --source=hedp ./hedp/tests/run.py
+    - python  -c "import hedp.tests; hedp.tests.test(coverage=True)"
 
-after_success:
-    coveralls
+#    - coverage run --source=hedp ./hedp/tests/run.py
+
+#after_success:
+#    coveralls
 

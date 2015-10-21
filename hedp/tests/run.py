@@ -6,8 +6,11 @@ import nose
 
 _base_dir, _ = os.path.split(__file__)
 
-def run(to_str=False):
-    result = nose.run(argv=['', '-s', '--where={}'.format(_base_dir), '--verbosity=2'])
+def run(coverage=False):
+    argv=['', '-s', '--where={}'.format(_base_dir), '--verbosity=2']
+    if coverage:
+        argv += ['--with-coverage', '--cover-package=hedp']
+    result = nose.run(argv=argv)
     status = int(not result)
     return status
 
