@@ -5,5 +5,4 @@
 # This software is governed by the CeCILL-B license under French law and
 # abiding by the rules of distribution of free software.
 
-
-
+from .run import run as test
