@@ -38,7 +38,7 @@ install:
     - python setup.py install
     - cd ..
     - rm -rf opacplot2/
-    - python setup.py develop
+    - python setup.py install
     - pwd
     - ls -R
 #- cd ./hedp/tests/
