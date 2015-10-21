@@ -10,8 +10,8 @@ from __future__ import print_function
 from __future__ import unicode_literals
 
 import numpy as np
-from hedp.lib.integrators import abel_integrate
-from hedp.math.derivative import gradient
+from ..lib.integrators import abel_integrate
+from .derivative import gradient
 
 def iabel(fr, dr=1):
     """
