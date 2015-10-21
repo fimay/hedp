@@ -11,7 +11,7 @@
 import numpy as np
 cimport numpy as np
 from libc.math cimport sqrt, acosh
-from cython.parallel import prange
+#from cython.parallel import prange
 
 
 cpdef abel_integrate(double [:, ::1] f, double [::1] r):

@@ -39,15 +39,14 @@ install:
     - cd ..
     - rm -rf opacplot2/
     - python setup.py install
+    - cd ~/
     - pwd
     - ls -R
-#- cd ./hedp/tests/
-
 
 # command to run tests
 script: 
-    - python ./hedp/tests/run.py --with-coverage --cover-package=hedp
-    - coverage run --source=hedp ./hedp/tests/run.py
+    - python  -c "import hedp.tests; hedp.tests.test()" --with-coverage --cover-package=hedp
+      #- coverage run --source=hedp ./hedp/tests/run.py
 
 after_success:
     coveralls
