@@ -29,6 +29,8 @@ install:
     - conda install --yes -c conda conda-env
     - conda info -a
     - conda create -q -n hedp-env --yes $DEPS pip python=${TRAVIS_PYTHON_VERSION}
+    - pip --version
+    - ls /home/travis/miniconda/bin/
     - source activate hedp-env
     - pip --version
 #    - conda install --yes $DEPS pip python=${TRAVIS_PYTHON_VERSION}
