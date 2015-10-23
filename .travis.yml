@@ -27,12 +27,7 @@ install:
     # Learned the hard way: miniconda is not always up-to-date with conda.
     - conda update --yes conda
     - conda install --yes -c conda conda-env
-    - conda info -a
-    - conda create -q -n hedp-env --yes $DEPS pip python=${TRAVIS_PYTHON_VERSION}
-    - pip --version
-    - if [ ${TRAVIS_PYTHON_VERSION:0:1} == "2" ]; then source /home/travis/miniconda/bin/activate hedp-env; else source /home/travis/miniconda3/bin/activate hedp-env; fi
-    - pip --version
-#    - conda install --yes $DEPS pip python=${TRAVIS_PYTHON_VERSION}
+    - conda install --yes $DEPS pip python=${TRAVIS_PYTHON_VERSION}
     - pip install coveralls 
     - git clone https://github.com/rth/opacplot2 --branch=master --single-branch
     - cd opacplot2/
