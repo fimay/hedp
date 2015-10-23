@@ -25,17 +25,15 @@ before_install:
     # See:
     # https://groups.google.com/a/continuum.io/forum/#!topic/conda/RSFENqovnro
     - conda update --yes --no-deps conda
+    - conda config --set always_yes yes --set changeps1 no
     # Learned the hard way: miniconda is not always up-to-date with conda.
     - conda update --yes conda
 
 # command to install dependencies
 install: 
-    - export PATH=/home/travis/miniconda/bin:$PATH
-    - export PATH=/home/travis/miniconda3/bin:$PATH
     - conda install --yes -c conda conda-env
-    - conda create -n testenv --yes $DEPS pip python=${TRAVIS_PYTHON_VERSION}
-    - source activate testenv
-    - echo $PATH
+    - conda create -q -n hedp-env --yes $DEPS pip python=${TRAVIS_PYTHON_VERSION}
+    - source activate hedp-env
     - pip --version
 #    - conda install --yes $DEPS pip python=${TRAVIS_PYTHON_VERSION}
     - pip install coveralls 
