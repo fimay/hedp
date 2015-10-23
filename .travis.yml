@@ -30,8 +30,7 @@ install:
     - conda info -a
     - conda create -q -n hedp-env --yes $DEPS pip python=${TRAVIS_PYTHON_VERSION}
     - pip --version
-    - ls /home/travis/miniconda/bin/
-    - source activate hedp-env
+    - if [ ${TRAVIS_PYTHON_VERSION:0:1} == "2" ]; then source /home/travis/miniconda/bin/activate hedp-env; else source /home/travis/miniconda3/bin/activate hedp-env; fi
     - pip --version
 #    - conda install --yes $DEPS pip python=${TRAVIS_PYTHON_VERSION}
     - pip install coveralls 
