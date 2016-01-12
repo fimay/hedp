@@ -45,7 +45,7 @@ A Python module to analyse High Energy Density (HED) experiments and radiation h
 
 
 #### Plasma physics `hedp.plasma_physics`
-   Defines a few useful quantities  in plasma physics:  the critical density, Coulomb logarithm, electron-ion collision rates, inverse Bremsstrahlung coefficient,  isentropic sound speed, Spitzer conductivity.
+   This section defines a few useful quantities required in plasma physics:  the critical density, Coulomb logarithm, electron-ion collision rates, inverse Bremsstrahlung coefficient,  isentropic sound speed, Spitzer conductivity.
 
 
 #### Visualization  `hedp.viz`
